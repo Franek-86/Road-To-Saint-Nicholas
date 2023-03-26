@@ -1,0 +1,33 @@
+import React from "react";
+import { useGlobalContext } from "./context";
+import Congratulations from "./Congratulations";
+import Failure from "./Failure";
+
+const TestResult = () => {
+  const { isModalOpen, closeModal, correct, questions, setCenter } =
+    useGlobalContext();
+  let flag;
+
+  const result = ((correct / questions.length) * 100).toFixed(0);
+
+  if (result >= 60) {
+    flag = true;
+  } else {
+    flag = false;
+  }
+  console.log(flag);
+
+  return (
+    <div
+      className={`${
+        isModalOpen ? "modal-container isOpen" : "modal-container"
+      }`}
+    >
+      <div className='modal-content'>
+        {flag ? <Congratulations /> : <Failure />}
+      </div>
+    </div>
+  );
+};
+
+export default TestResult;
