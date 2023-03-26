@@ -26,8 +26,7 @@ const AppProvider = ({ children }) => {
     ["games", { lat: 41.10871623899713, lng: 16.886143782588302 }],
     ["stadium", { lat: 41.085503141131355, lng: 16.84006701608872 }],
   ]);
-  console.log("dove va", center[locationIndex][1]);
-  console.log("dove sto", locationIndex);
+
   const [start, setIsStart] = useState(true);
   const [end, setIsEnd] = useState(false);
   const [isPassed, setIsPassed] = useState(false);

@@ -5,8 +5,15 @@ import { SiChainguard } from "react-icons/si";
 import { AiOutlineCloseSquare } from "react-icons/ai";
 
 const Modal = () => {
-  const { openModal, handleSubmit, isModalOpen, closeModal, quiz } =
-    useGlobalContext();
+  const {
+    openModal,
+    handleSubmit,
+    isModalOpen,
+    closeModal,
+    quiz,
+    center,
+    locationIndex,
+  } = useGlobalContext();
   const { category, amount, difficulty, text } = quiz;
   let flag = false;
   if (category === "Musicals_And_Theatres") {
@@ -42,13 +49,18 @@ const Modal = () => {
                 <h4>Difficulty level: </h4>
                 <span>{difficulty};</span>
               </li>
+              <li>
+                <h4>Test number: </h4>
+                <span>
+                  {locationIndex + 1} of {center.length};
+                </span>
+              </li>
             </ul>
           </div>
           <div className='open-modal-btn'>
             <button className='btn open-btn' onClick={handleSubmit}>
               start test
             </button>
-            {/* <h4 className='test123'>test</h4> */}
           </div>
         </div>
       </article>
