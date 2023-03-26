@@ -87,7 +87,7 @@ const Map = () => {
     <MapContainer
       style={{ width: "100%", height: "100%" }}
       center={center[locationIndex][1]}
-      zoom={14}
+      zoom={16}
       scrollWheelZoom={false}
       eventHandlers={{
         click: () => {
