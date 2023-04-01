@@ -9,12 +9,13 @@ import End from "./End";
 import { useGlobalContext } from "./context";
 
 function App() {
-  const { isModalOpen, waiting, loading, start, end } = useGlobalContext();
+  const { isModalOpen, waiting, loading, start, end, locationIndex } =
+    useGlobalContext();
 
   if (loading) {
     return <Loading />;
   }
-  if (start) {
+  if (start && locationIndex === 0) {
     return <Start />;
   }
   if (end) {

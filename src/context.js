@@ -16,9 +16,19 @@ const table = {
 };
 
 const API_ENDPOINT = "https://opentdb.com/api.php?";
-const AppProvider = ({ children }) => {
-  const [locationIndex, setLocationIndex] = useState(0);
+let localization;
+const setLocIndex = () => {
+  if (localStorage.getItem("locationIndex")) {
+    localization = parseInt(localStorage.getItem("locationIndex"));
+  } else {
+    localization = 0;
+  }
+  return localization;
+};
 
+const AppProvider = ({ children }) => {
+  const [locationIndex, setLocationIndex] = useState(setLocIndex());
+  console.log("c", locationIndex);
   const [center, setCenter] = useState([
     ["airport", { lat: 41.1376372629904, lng: 16.765180540261554 }],
     ["duomo", { lat: 41.12859815408936, lng: 16.86877482698253 }],
@@ -68,6 +78,7 @@ const AppProvider = ({ children }) => {
   const startJourney = () => {
     setIsStart(false);
   };
+
   const endJourney = () => {
     setIsEnd(true);
   };
@@ -92,8 +103,9 @@ const AppProvider = ({ children }) => {
       console.log("the end");
       setLocationIndex(0);
     } else {
-      let test = locationIndex + 1;
-      setLocationIndex(test);
+      let nextPlace = parseInt(locationIndex) + 1;
+      setLocationIndex(nextPlace);
+      localStorage.setItem("locationIndex", nextPlace);
     }
   };
   console.log("contectLocationIndex", locationIndex);

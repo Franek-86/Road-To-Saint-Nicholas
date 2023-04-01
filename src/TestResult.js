@@ -10,7 +10,7 @@ const TestResult = () => {
 
   const result = ((correct / questions.length) * 100).toFixed(0);
 
-  if (result >= 60) {
+  if (result >= 0) {
     flag = true;
   } else {
     flag = false;

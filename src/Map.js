@@ -22,7 +22,7 @@ import {
   isPassed,
 } from "react-leaflet";
 import cricket from "./cricket.png";
-
+console.log("test1", "ciao1");
 const Map = () => {
   const {
     openModal,
@@ -36,7 +36,7 @@ const Map = () => {
     nextLocation,
     hideCricket,
   } = useGlobalContext();
-
+  console.log("test2", "ciao2");
   // const markers = useRef();
 
   // if (markers.current) {
@@ -87,7 +87,7 @@ const Map = () => {
     <MapContainer
       style={{ width: "100%", height: "100%" }}
       center={center[locationIndex][1]}
-      zoom={14}
+      zoom={17}
       scrollWheelZoom={false}
       eventHandlers={{
         click: () => {
@@ -115,13 +115,7 @@ const Map = () => {
       {!isPassed ? (
         <>
           <CircleMarker
-            className={
-              locationIndex === 0
-                ? "stop"
-                : locationIndex < 0
-                ? "disappear"
-                : null
-            }
+            className={locationIndex === 0 ? "stop" : "disappear"}
             center={[41.1376372629904, 16.765180540261554]}
             pathOptions={brownOption}
             stroke={brownOption}
@@ -140,13 +134,7 @@ const Map = () => {
           ></CircleMarker>
 
           <CircleMarker
-            className={
-              locationIndex === 1
-                ? "stop"
-                : locationIndex < 1
-                ? "disappear"
-                : null
-            }
+            className={locationIndex === 1 ? "stop" : "disappear"}
             center={[41.12859815408936, 16.86877482698253]}
             pathOptions={purpleOptions}
             radius={20}
@@ -167,14 +155,9 @@ const Map = () => {
             </Popup>
           </CircleMarker>
 
+          {console.log("li", locationIndex)}
           <CircleMarker
-            className={
-              locationIndex === 2
-                ? "stop"
-                : locationIndex < 2
-                ? "disappear"
-                : null
-            }
+            className={locationIndex === 2 ? "stop" : "disappear"}
             center={[41.12366528257363, 16.872688445798705]}
             pathOptions={redOptions}
             radius={20}
@@ -194,13 +177,7 @@ const Map = () => {
           </CircleMarker>
 
           <CircleMarker
-            className={
-              locationIndex === 3
-                ? "stop"
-                : locationIndex < 3
-                ? "disappear"
-                : null
-            }
+            className={locationIndex === 3 ? "stop" : "disappear"}
             center={[41.10871623899713, 16.886143782588302]}
             pathOptions={blackOptions}
             radius={20}
@@ -220,13 +197,7 @@ const Map = () => {
           </CircleMarker>
 
           <CircleMarker
-            className={
-              locationIndex === 4
-                ? "stop"
-                : locationIndex < 4
-                ? "disappear"
-                : null
-            }
+            className={locationIndex == "4" ? "stop" : "disappear"}
             center={[41.085503141131355, 16.84006701608872]}
             pathOptions={fillRedOptions}
             radius={20}
