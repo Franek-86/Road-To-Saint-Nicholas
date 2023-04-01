@@ -1,6 +1,5 @@
 // import "leaflet/dist/leaflet.css";
 import "../node_modules/leaflet/dist/leaflet.css";
-import "./App.css";
 import Map from "./Map";
 import Loading from "./Loading";
 import Questions from "./Questions";

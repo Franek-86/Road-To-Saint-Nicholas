@@ -11,9 +11,10 @@ const Start = () => {
           </h1>
           <h3 className='header-sub'> city quiz tour</h3>
         </div>
-        <button className='btn start-btn' onClick={startJourney}>
-          start journey
-        </button>
+        <div className='btn-wrapper' onClick={startJourney}>
+          <div className='pulsing'></div>
+          <button className='btn start-btn'>start journey</button>
+        </div>
       </div>
     </section>
   );
