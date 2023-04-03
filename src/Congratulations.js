@@ -8,7 +8,7 @@ const Congratulations = () => {
     correct,
     questions,
     setCenter,
-    showCricket,
+    showOctopus,
     setIsPassed,
     isPassed,
     closeSecondModal,
@@ -22,7 +22,7 @@ const Congratulations = () => {
       closeSecondModal();
       endJourney();
     } else {
-      showCricket();
+      showOctopus();
       closeSecondModal();
     }
   };

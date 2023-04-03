@@ -12,7 +12,6 @@ const Start = () => {
           <h3 className='header-sub'> city quiz tour</h3>
         </div>
         <div className='btn-wrapper' onClick={startJourney}>
-          <div className='pulsing'></div>
           <button className='btn start-btn'>start journey</button>
         </div>
       </div>

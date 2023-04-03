@@ -21,7 +21,7 @@ import {
   MapContainer,
   isPassed,
 } from "react-leaflet";
-import cricket from "./cricket.png";
+import octopus from "./octopus.png";
 console.log("test1", "ciao1");
 const Map = () => {
   const {
@@ -75,11 +75,10 @@ const Map = () => {
     };
     console.log("locationIndex", locationIndex);
     return (
-      <>
-        <button onClick={fly}>
-          <img className='flyToBtn' src={cricket} alt='no' />;
-        </button>
-      </>
+      <div className='fly-btn-wrapper' onClick={fly}>
+        <div className='background-btn'></div>
+        <img className='flyToBtn' src={octopus} alt='no' />
+      </div>
     );
   };
 

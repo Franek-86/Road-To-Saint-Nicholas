@@ -109,7 +109,7 @@ const AppProvider = ({ children }) => {
     }
   };
   console.log("contectLocationIndex", locationIndex);
-  const showCricket = () => {
+  const showOctopus = () => {
     closeModal();
     setIsPassed(true);
   };
@@ -163,7 +163,7 @@ const AppProvider = ({ children }) => {
         isPassed,
         start,
         end,
-        showCricket,
+        showOctopus,
         setCenter,
         setQuiz,
         closeModal,
