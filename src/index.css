@@ -792,7 +792,7 @@ li > h4 {
 .end-btn-container {
   display: flex;
   gap: 0.75rem;
-  padding-top: 1rem;
+  padding-top: 3rem;
 }
 .end-text p {
   line-height: 2rem;
@@ -813,6 +813,16 @@ li > h4 {
 .end-btn {
   background-color: var(--clr-secondary-5);
 }
+.end-btn:hover {
+  background-color: var(--clr-secondary-3);
+}
 .start-again-btn {
   background-color: var(--clr-primary-6);
+}
+.start-again-btn:hover {
+  background-color: var(--clr-primary-3);
+}
+.end-btn:hover {
+  background-color: var(--clr-secondary-1);
+  color: var(--clr-secondary-6);
 }
