@@ -76,6 +76,7 @@ const Map = () => {
     console.log("locationIndex", locationIndex);
     return (
       <div className='fly-btn-wrapper' onClick={fly}>
+        <div className='loader-btn'></div>
         <div className='background-btn'></div>
         <img className='flyToBtn' src={octopus} alt='no' />
       </div>
