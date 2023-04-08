@@ -1,7 +1,26 @@
 import React from "react";
 import { FaTrophy } from "react-icons/fa";
-
+import { useGlobalContext } from "./context";
 const End = () => {
+  const {
+    start,
+    reStart,
+    closeModal,
+    locationIndex,
+    questions,
+    setCenter,
+    handleSubmit,
+    fetchQuestions,
+    url,
+    isSecondModalOpen,
+    closeSecondModal,
+    startJourney,
+    nextLocation,
+    setLocationIndex,
+    setWaiting,
+    setLocIndex,
+  } = useGlobalContext();
+
   return (
     <section className='end-section'>
       <div className='end-wrapper'>
@@ -14,8 +33,10 @@ const End = () => {
             quiz tour.
           </p>
           <div className='end-btn-container'>
-            <button className='btn end-btn'>end</button>
-            <button className='btn start-again-btn'>start again</button>
+            <button className='btn end-btn'>end quiz</button>
+            <button onClick={reStart} className='btn start-again-btn'>
+              back to intro
+            </button>
           </div>
         </article>
       </div>

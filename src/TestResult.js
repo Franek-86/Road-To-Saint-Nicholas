@@ -10,12 +10,11 @@ const TestResult = () => {
 
   const result = ((correct / questions.length) * 100).toFixed(0);
 
-  if (result >= 50) {
+  if (result >= 0) {
     flag = true;
   } else {
     flag = false;
   }
-  console.log(flag);
 
   return (
     <div

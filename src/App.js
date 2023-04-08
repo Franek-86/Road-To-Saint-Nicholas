@@ -9,7 +9,7 @@ import End from "./End";
 import { useGlobalContext } from "./context";
 
 function App() {
-  const { isModalOpen, waiting, loading, start, end, locationIndex } =
+  const { isModalOpen, waiting, loading, start, end, locationIndex, test } =
     useGlobalContext();
 
   if (loading) {

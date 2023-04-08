@@ -22,7 +22,6 @@ import {
   isPassed,
 } from "react-leaflet";
 import octopus from "./octopus.png";
-console.log("test1", "ciao1");
 const Map = () => {
   const {
     openModal,
@@ -35,29 +34,10 @@ const Map = () => {
     locationIndex,
     nextLocation,
     hideCricket,
+    reStart,
+    test,
   } = useGlobalContext();
-  console.log("test2", "ciao2");
-  // const markers = useRef();
 
-  // if (markers.current) {
-  //   let arr = [...markers.current.children];
-  //   // console.log(arr);
-  //   let test1234 = arr.filter((i) => {
-  //     if (i.classList.value !== locationIndex.toString()) {
-  //       console.log("aoooooooo");
-  //     }
-
-  //     console.log(i.classList.value);
-  //     console.log("locationIndex", locationIndex);
-  //     return i.classList.value !== locationIndex.toString();
-  //   });
-  //   console.log("test1234", test1234);
-  //   test1234.forEach((i) => {
-  //     console.log(i);
-  //     console.log(i.style.display);
-  //     i.style.display = "none";
-  //   });
-  // }
   const blackOptions = { color: "black" };
   const brownOption = { color: "#cc660e" };
   const redOptions = { color: "red" };
@@ -65,15 +45,20 @@ const Map = () => {
   const purpleOptions = { color: "purple" };
 
   const FlyToButton = ({ latlng }) => {
-    const map = useMap(); // available when component nested inside MapContainer
+    const map = useMap();
     const fly = () => {
-      map.flyTo(latlng, 17, { duration: 2 });
-      setTimeout(() => {
-        hideCricket();
+      console.log(center.length);
+      if (locationIndex < center.length - 1) {
         nextLocation();
-      }, 3000);
+      }
+      if (locationIndex < center.length) {
+        map.flyTo(latlng, 17, { duration: 2 });
+      } else {
+        console.log("stop it");
+      }
+
+      hideCricket();
     };
-    console.log("locationIndex", locationIndex);
     return (
       <div className='fly-btn-wrapper' onClick={fly}>
         <div className='loader-btn'></div>
@@ -95,15 +80,17 @@ const Map = () => {
         },
       }}
     >
+      {console.log("imMap", locationIndex)}
       <TileLayer
         attribution='Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url='https://tile.openstreetmap.bzh/br/{z}/{x}/{y}.png'
       />
-      l
+
       <VectorTileLayer
         styleUrl='mapbox://styles/customstyles/ckpslkwor05q318mzmetjbv5z'
         accessToken='XXXX'
       />
+      {/* {test && <Test />} */}
       {isPassed ? (
         <FlyToButton
           latlng={
@@ -112,6 +99,7 @@ const Map = () => {
         />
       ) : null}
       {/* -----------------circle markers----------------- */}
+
       {!isPassed ? (
         <>
           <CircleMarker
@@ -154,8 +142,6 @@ const Map = () => {
               Basilica Cattedrale Metropolitana Primaziale San Sabino
             </Popup>
           </CircleMarker>
-
-          {console.log("li", locationIndex)}
           <CircleMarker
             className={locationIndex === 2 ? "stop" : "disappear"}
             center={[41.12366528257363, 16.872688445798705]}

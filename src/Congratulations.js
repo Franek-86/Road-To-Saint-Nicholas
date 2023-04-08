@@ -26,7 +26,6 @@ const Congratulations = () => {
       closeSecondModal();
     }
   };
-  console.log("end", end);
 
   return (
     <div className={isModalOpen ? "modal-container isOpen" : "modal-container"}>

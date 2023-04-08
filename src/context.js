@@ -28,7 +28,6 @@ const setLocIndex = () => {
 
 const AppProvider = ({ children }) => {
   const [locationIndex, setLocationIndex] = useState(setLocIndex());
-  console.log("c", locationIndex);
   const [center, setCenter] = useState([
     ["airport", { lat: 41.1376372629904, lng: 16.765180540261554 }],
     ["duomo", { lat: 41.12859815408936, lng: 16.86877482698253 }],
@@ -36,7 +35,6 @@ const AppProvider = ({ children }) => {
     ["games", { lat: 41.10871623899713, lng: 16.886143782588302 }],
     ["stadium", { lat: 41.085503141131355, lng: 16.84006701608872 }],
   ]);
-
   const [start, setIsStart] = useState(true);
   const [end, setIsEnd] = useState(false);
   const [isPassed, setIsPassed] = useState(false);
@@ -77,11 +75,27 @@ const AppProvider = ({ children }) => {
   };
   const startJourney = () => {
     setIsStart(false);
+    setIsEnd(false);
+  };
+
+  const reStart = () => {
+    // setWaiting(true);
+    closeModal();
+    // setLocationIndex(0);
+    // setLocIndex("something");
+    setIsSecondModalOpen(false);
+    setWaiting(true);
+    localStorage.setItem("locationIndex", 0);
+    setLocationIndex(0);
+    startJourney();
+
+    setIsStart(true);
   };
 
   const endJourney = () => {
     setIsEnd(true);
   };
+
   const openModal = () => {
     setIsModalOpen(true);
   };
@@ -99,16 +113,25 @@ const AppProvider = ({ children }) => {
   };
 
   const nextLocation = () => {
-    if (locationIndex > center.length - 1) {
+    let length = center.length - 1;
+    console.log("test", locationIndex - (center.length - 1));
+    let flag = locationIndex >= center.length - 1;
+    console.log("flag", flag);
+    console.log("length", length, typeof length);
+    console.log("location index", locationIndex, typeof locationIndex);
+    if (flag) {
+      console.log("aaa", locationIndex, center.length);
       console.log("the end");
       setLocationIndex(0);
+      // setCenter(center[0][1]);
+      return;
     } else {
-      let nextPlace = parseInt(locationIndex) + 1;
-      setLocationIndex(nextPlace);
+      let nextPlace = parseInt(locationIndex + 1);
       localStorage.setItem("locationIndex", nextPlace);
+      console.log("aooooooooooooooooooo");
+      setLocationIndex(nextPlace);
     }
   };
-  console.log("contectLocationIndex", locationIndex);
   const showOctopus = () => {
     closeModal();
     setIsPassed(true);
@@ -129,7 +152,6 @@ const AppProvider = ({ children }) => {
         return index;
       }
     });
-    console.log(index);
   };
   const checkAnswer = (value) => {
     if (value) {
@@ -166,6 +188,7 @@ const AppProvider = ({ children }) => {
         showOctopus,
         setCenter,
         setQuiz,
+        setWaiting,
         closeModal,
         openSecondModal,
         closeModal,
@@ -179,6 +202,9 @@ const AppProvider = ({ children }) => {
         hideCricket,
         startJourney,
         endJourney,
+        setLocationIndex,
+        setLocIndex,
+        reStart,
       }}
     >
       {children}
