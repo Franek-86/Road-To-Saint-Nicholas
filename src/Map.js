@@ -67,6 +67,61 @@ const Map = () => {
       </div>
     );
   };
+  var treesArr = Array.apply(null, { length: 20 });
+
+  const Road = () => {
+    return (
+      <section className='road-section'>
+        <div className='road-trees-wrapper'>
+          {treesArr.map((i) => {
+            console.log(i);
+            return (
+              <>
+                <div className='road-trees-base'>
+                  <div className='road-trees-green'></div>
+                </div>
+              </>
+            );
+          })}
+        </div>
+        <div className='road-steps-wrapper'>
+          {center.map((i) => {
+            console.log(i);
+            return (
+              <>
+                <div className='road-steps'>
+                  <div className='road-oct'></div>
+                </div>
+              </>
+            );
+          })}
+        </div>
+        <div className='road-wrapper'>
+          <div className='road-line'></div>
+          <div className='road-line'></div>
+          <div className='road-line'></div>
+          <div className='road-line'></div>
+          <div className='road-line'></div>
+          <div className='road-line'></div>
+          <div className='road-line'></div>
+          <div className='road-line'></div>
+          <div className='road-line'></div>
+          <div className='road-line'></div>
+          <div className='road-line'></div>
+          <div className='road-line'></div>
+          <div className='road-line'></div>
+          <div className='road-line'></div>
+          <div className='road-line'></div>
+          <div className='road-line'></div>
+          <div className='road-line'></div>
+          <div className='road-line'></div>
+          <div className='road-line'></div>
+          <div className='road-line'></div>
+          <div className='road-line'></div>
+        </div>
+      </section>
+    );
+  };
 
   return (
     <MapContainer
@@ -98,6 +153,10 @@ const Map = () => {
           }
         />
       ) : null}
+
+      {/* ---------------------road----------------------- */}
+
+      <Road />
       {/* -----------------circle markers----------------- */}
 
       {!isPassed ? (
