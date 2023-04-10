@@ -39,7 +39,6 @@ const Map = () => {
     reStart,
     test,
   } = useGlobalContext();
-
   const blackOptions = { color: "black" };
   const brownOption = { color: "#cc660e" };
   const redOptions = { color: "red" };
@@ -70,13 +69,18 @@ const Map = () => {
     );
   };
   var treesArr = Array.apply(null, { length: 20 });
-
+  var linesArr = Array.apply(null, { length: 40 });
   const Road = () => {
     return (
-      <section className='road-section'>
-        <div className='road-bus'>
-          <img className='bus-img' src={bus} alt='bus' />
-        </div>
+      <section
+        className={
+          locationIndex === 2 || locationIndex === 3
+            ? `road-section slide-road-section1`
+            : locationIndex === 4
+            ? `road-section slide-road-section2`
+            : `road-section`
+        }
+      >
         <div className='road-trees-wrapper'>
           {treesArr.map((i) => {
             console.log(i);
@@ -93,38 +97,30 @@ const Map = () => {
           {center.map((i, index) => {
             console.log(i);
             return (
-              <>
-                <div className={`road-steps step-${index}`}>
-                  <div className='road-oct'></div>
+              <div className={`road-step step-${index}`}>
+                <div
+                  className={
+                    index === locationIndex ? `road-bus show-bus` : `road-bus`
+                  }
+                >
+                  <img src={bus} alt='bus-pic' />
                 </div>
-              </>
+                <div className='road-oct'></div>
+              </div>
             );
           })}
         </div>
 
         <div className='road-wrapper'>
           <div className='road-lines-wrapper'>
-            <div className='road-line'></div>
-            <div className='road-line'></div>
-            <div className='road-line'></div>
-            <div className='road-line'></div>
-            <div className='road-line'></div>
-            <div className='road-line'></div>
-            <div className='road-line'></div>
-            <div className='road-line'></div>
-            <div className='road-line'></div>
-            <div className='road-line'></div>
-            <div className='road-line'></div>
-            <div className='road-line'></div>
-            <div className='road-line'></div>
-            <div className='road-line'></div>
-            <div className='road-line'></div>
-            <div className='road-line'></div>
-            <div className='road-line'></div>
-            <div className='road-line'></div>
-            <div className='road-line'></div>
-            <div className='road-line'></div>
-            <div className='road-line'></div>
+            {linesArr.map((i) => {
+              console.log(i);
+              return (
+                <>
+                  <div className='road-line'></div>
+                </>
+              );
+            })}
           </div>
         </div>
       </section>
