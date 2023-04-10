@@ -3,6 +3,7 @@ import { useRef } from "react";
 import { useGlobalContext } from "./context";
 import "leaflet/dist/leaflet.css";
 import VectorTileLayer from "react-leaflet-vector-layer";
+
 import {
   FeatureGroup,
   TileLayer,
@@ -22,6 +23,7 @@ import {
   isPassed,
 } from "react-leaflet";
 import octopus from "./octopus.png";
+import bus from "./bus.png";
 const Map = () => {
   const {
     openModal,
@@ -72,6 +74,9 @@ const Map = () => {
   const Road = () => {
     return (
       <section className='road-section'>
+        <div className='road-bus'>
+          <img className='bus-img' src={bus} alt='bus' />
+        </div>
         <div className='road-trees-wrapper'>
           {treesArr.map((i) => {
             console.log(i);
@@ -85,39 +90,42 @@ const Map = () => {
           })}
         </div>
         <div className='road-steps-wrapper'>
-          {center.map((i) => {
+          {center.map((i, index) => {
             console.log(i);
             return (
               <>
-                <div className='road-steps'>
+                <div className={`road-steps step-${index}`}>
                   <div className='road-oct'></div>
                 </div>
               </>
             );
           })}
         </div>
+
         <div className='road-wrapper'>
-          <div className='road-line'></div>
-          <div className='road-line'></div>
-          <div className='road-line'></div>
-          <div className='road-line'></div>
-          <div className='road-line'></div>
-          <div className='road-line'></div>
-          <div className='road-line'></div>
-          <div className='road-line'></div>
-          <div className='road-line'></div>
-          <div className='road-line'></div>
-          <div className='road-line'></div>
-          <div className='road-line'></div>
-          <div className='road-line'></div>
-          <div className='road-line'></div>
-          <div className='road-line'></div>
-          <div className='road-line'></div>
-          <div className='road-line'></div>
-          <div className='road-line'></div>
-          <div className='road-line'></div>
-          <div className='road-line'></div>
-          <div className='road-line'></div>
+          <div className='road-lines-wrapper'>
+            <div className='road-line'></div>
+            <div className='road-line'></div>
+            <div className='road-line'></div>
+            <div className='road-line'></div>
+            <div className='road-line'></div>
+            <div className='road-line'></div>
+            <div className='road-line'></div>
+            <div className='road-line'></div>
+            <div className='road-line'></div>
+            <div className='road-line'></div>
+            <div className='road-line'></div>
+            <div className='road-line'></div>
+            <div className='road-line'></div>
+            <div className='road-line'></div>
+            <div className='road-line'></div>
+            <div className='road-line'></div>
+            <div className='road-line'></div>
+            <div className='road-line'></div>
+            <div className='road-line'></div>
+            <div className='road-line'></div>
+            <div className='road-line'></div>
+          </div>
         </div>
       </section>
     );
