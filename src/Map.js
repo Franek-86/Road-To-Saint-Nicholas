@@ -132,7 +132,8 @@ const Map = () => {
           <CircleMarker
             className={locationIndex === 1 ? "stop" : "disappear"}
             center={[41.12859815408936, 16.86877482698253]}
-            pathOptions={purpleOptions}
+            pathOptions={brownOption}
+            stroke={brownOption}
             radius={20}
             eventHandlers={{
               click: () => {
