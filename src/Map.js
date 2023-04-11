@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { useGlobalContext } from "./context";
 import "leaflet/dist/leaflet.css";
 import VectorTileLayer from "react-leaflet-vector-layer";
-
+import Road from "./Road";
 import {
   FeatureGroup,
   TileLayer,
@@ -23,7 +23,7 @@ import {
   isPassed,
 } from "react-leaflet";
 import octopus from "./octopus.png";
-import bus from "./bus.png";
+
 const Map = () => {
   const {
     openModal,
@@ -68,62 +68,6 @@ const Map = () => {
         <div className='background-btn'></div>
         <img className='flyToBtn' src={octopus} alt='no' />
       </div>
-    );
-  };
-  var treesArr = Array.apply(null, { length: 20 });
-  var linesArr = Array.apply(null, { length: 40 });
-  const Road = () => {
-    return (
-      <section
-        className={
-          locationIndex === 0
-            ? `road-section`
-            : `road-section slide-road-section${slide}`
-        }
-      >
-        <div className='road-trees-wrapper'>
-          {treesArr.map((i) => {
-            console.log(i);
-            return (
-              <>
-                <div className='road-trees-base'>
-                  <div className='road-trees-green'></div>
-                </div>
-              </>
-            );
-          })}
-        </div>
-        <div className='road-steps-wrapper'>
-          {center.map((i, index) => {
-            console.log(i);
-            return (
-              <div className={`road-step step-${index}`}>
-                <div
-                  className={
-                    index === locationIndex ? `road-bus show-bus` : `road-bus`
-                  }
-                >
-                  <img src={bus} alt='bus-pic' />
-                </div>
-                <div className='road-oct'></div>
-              </div>
-            );
-          })}
-        </div>
-
-        <div className='road-wrapper'>
-          <div className='road-lines-wrapper'>
-            {linesArr.map((i) => {
-              console.log(i);
-              return (
-                <>
-                  <div className='road-line'></div>
-                </>
-              );
-            })}
-          </div>
-        </div>
-      </section>
     );
   };
 
@@ -257,6 +201,7 @@ const Map = () => {
             eventHandlers={{
               click: () => {
                 openModal();
+                slideRoad();
                 setQuiz({
                   amount: 3,
                   category: "sport",

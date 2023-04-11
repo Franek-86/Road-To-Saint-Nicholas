@@ -352,7 +352,7 @@ li > h4 {
 .map-section {
   position: absolute;
   display: block;
-  top: 0;
+  top: 0rem;
   left: 0;
   height: 100%;
   width: 100%;
@@ -836,7 +836,7 @@ li > h4 {
   width: 450vw;
   height: 13vh;
   min-height: 5rem;
-  bottom: 1rem;
+  bottom: 0rem;
   z-index: 1000;
   overflow: visible;
   transform: translateX(0);
@@ -847,6 +847,9 @@ li > h4 {
   transform: translateX(-13%);
 }
 .slide-road-section2 {
+  transform: translateX(-25%);
+}
+.slide-road-section3 {
   transform: translateX(-40%);
 }
 
@@ -888,7 +891,7 @@ li > h4 {
   padding-left: 0.25rem;
   opacity: 0;
   visibility: none;
-  transition: var(--transition);
+  transition: opacity 2s ease;
 }
 .show-bus {
   visibility: visible;

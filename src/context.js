@@ -82,20 +82,20 @@ const AppProvider = ({ children }) => {
   const slideRoad = () => {
     // let test5 = localStorage.getItem("locationIndex");
     // console.log("test5", test5);
-    if (locationIndex === 2) {
-      console.log("slide2");
-      setSlide(2);
-    }
-    if (locationIndex === 3) {
-      console.log("slide2");
-      setSlide(2);
-    }
     if (locationIndex === 1) {
       console.log("ha slidato");
       setSlide(1);
       // setTimeout(() => {
       //   setSlide(1);
       // }, 1000);
+    }
+    if (locationIndex === 2) {
+      console.log("slide2");
+      setSlide(2);
+    }
+    if (locationIndex === 3) {
+      console.log("slide3");
+      setSlide(3);
     }
   };
   console.log("slide", slide);
@@ -109,7 +109,7 @@ const AppProvider = ({ children }) => {
     localStorage.setItem("locationIndex", 0);
     setLocationIndex(0);
     startJourney();
-
+    setSlide(0);
     setIsStart(true);
   };
 
