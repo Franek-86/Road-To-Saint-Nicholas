@@ -38,6 +38,8 @@ const Map = () => {
     hideCricket,
     reStart,
     test,
+    slide,
+    slideRoad,
   } = useGlobalContext();
   const blackOptions = { color: "black" };
   const brownOption = { color: "#cc660e" };
@@ -74,11 +76,9 @@ const Map = () => {
     return (
       <section
         className={
-          locationIndex === 2 || locationIndex === 3
-            ? `road-section slide-road-section1`
-            : locationIndex === 4
-            ? `road-section slide-road-section2`
-            : `road-section`
+          locationIndex === 0
+            ? `road-section`
+            : `road-section slide-road-section${slide}`
         }
       >
         <div className='road-trees-wrapper'>
@@ -174,6 +174,7 @@ const Map = () => {
             eventHandlers={{
               click: () => {
                 openModal();
+                slideRoad();
                 setQuiz({
                   amount: 3,
                   category: "geography",
@@ -192,6 +193,7 @@ const Map = () => {
             eventHandlers={{
               click: () => {
                 openModal();
+                slideRoad();
                 setQuiz({
                   amount: 3,
                   category: "history",
@@ -213,6 +215,7 @@ const Map = () => {
             eventHandlers={{
               click: () => {
                 openModal();
+                slideRoad();
                 setQuiz({
                   amount: 3,
                   category: "Musicals_And_Theatres",
@@ -233,6 +236,7 @@ const Map = () => {
             eventHandlers={{
               click: () => {
                 openModal();
+                slideRoad();
                 setQuiz({
                   amount: 2,
                   category: "games",

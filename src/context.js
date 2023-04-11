@@ -27,7 +27,7 @@ const setLocIndex = () => {
 };
 
 const AppProvider = ({ children }) => {
-  const [locationIndex, setLocationIndex] = useState(setLocIndex());
+  const [locationIndex, setLocationIndex] = useState(setLocIndex);
   const [center, setCenter] = useState([
     ["airport", { lat: 41.1376372629904, lng: 16.765180540261554 }],
     ["duomo", { lat: 41.12859815408936, lng: 16.86877482698253 }],
@@ -35,6 +35,7 @@ const AppProvider = ({ children }) => {
     ["games", { lat: 41.10871623899713, lng: 16.886143782588302 }],
     ["stadium", { lat: 41.085503141131355, lng: 16.84006701608872 }],
   ]);
+  const [slide, setSlide] = useState(0);
   const [start, setIsStart] = useState(true);
   const [end, setIsEnd] = useState(false);
   const [isPassed, setIsPassed] = useState(false);
@@ -77,7 +78,27 @@ const AppProvider = ({ children }) => {
     setIsStart(false);
     setIsEnd(false);
   };
-
+  console.log("location index", locationIndex);
+  const slideRoad = () => {
+    // let test5 = localStorage.getItem("locationIndex");
+    // console.log("test5", test5);
+    if (locationIndex === 2) {
+      console.log("slide2");
+      setSlide(2);
+    }
+    if (locationIndex === 3) {
+      console.log("slide2");
+      setSlide(2);
+    }
+    if (locationIndex === 1) {
+      console.log("ha slidato");
+      setSlide(1);
+      // setTimeout(() => {
+      //   setSlide(1);
+      // }, 1000);
+    }
+  };
+  console.log("slide", slide);
   const reStart = () => {
     // setWaiting(true);
     closeModal();
@@ -116,15 +137,17 @@ const AppProvider = ({ children }) => {
     let length = center.length - 1;
     console.log("test", locationIndex - (center.length - 1));
     let flag = locationIndex >= center.length - 1;
-    console.log("flag", flag);
-    console.log("length", length, typeof length);
-    console.log("location index", locationIndex, typeof locationIndex);
+    // console.log("flag", flag);
+    // console.log("length", length, typeof length);
+    // console.log("location index", locationIndex, typeof locationIndex);
+    console.log("slideRoad");
+
     if (flag) {
       console.log("aaa", locationIndex, center.length);
       console.log("the end");
       setLocationIndex(0);
+
       // setCenter(center[0][1]);
-      return;
     } else {
       let nextPlace = parseInt(locationIndex + 1);
       localStorage.setItem("locationIndex", nextPlace);
@@ -185,6 +208,7 @@ const AppProvider = ({ children }) => {
         isPassed,
         start,
         end,
+        slide,
         showOctopus,
         setCenter,
         setQuiz,
@@ -205,6 +229,7 @@ const AppProvider = ({ children }) => {
         setLocationIndex,
         setLocIndex,
         reStart,
+        slideRoad,
       }}
     >
       {children}

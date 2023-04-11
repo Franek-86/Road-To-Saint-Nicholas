@@ -833,19 +833,21 @@ li > h4 {
 
 .road-section {
   position: absolute;
-  width: 500vw;
+  width: 450vw;
   height: 13vh;
   min-height: 5rem;
   bottom: 1rem;
   z-index: 1000;
   overflow: visible;
   transform: translateX(0);
+  transition: transform 3s ease !important;
 }
+
 .slide-road-section1 {
-  transform: translateX(-28%);
+  transform: translateX(-13%);
 }
 .slide-road-section2 {
-  transform: translateX(-50%);
+  transform: translateX(-40%);
 }
 
 .road-wrapper {
@@ -903,6 +905,7 @@ li > h4 {
   bottom: 1.5rem;
   padding-right: 19rem;
   padding-left: 3rem;
+  padding-bottom: 4.9rem;
 }
 
 .road-step {
@@ -910,6 +913,8 @@ li > h4 {
   height: 100%;
   border-right: 0.2rem solid var(--clr-secondary-4);
   position: relative;
+  z-index: 1000;
+
   /* border: 5px solid blue; */
   /* z-index: 1; */
 }
@@ -933,6 +938,7 @@ li > h4 {
     0% 70%,
     0% 30%
   );
+  z-index: 1000;
 }
 
 /* trees */
