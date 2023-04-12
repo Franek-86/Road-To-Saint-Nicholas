@@ -4,6 +4,7 @@ import { useGlobalContext } from "./context";
 import "leaflet/dist/leaflet.css";
 import VectorTileLayer from "react-leaflet-vector-layer";
 import Road from "./Road";
+
 import {
   FeatureGroup,
   TileLayer,
@@ -23,6 +24,7 @@ import {
   isPassed,
 } from "react-leaflet";
 import octopus from "./octopus.png";
+import Table from "./Table";
 
 const Map = () => {
   const {
@@ -88,7 +90,6 @@ const Map = () => {
         attribution='Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url='https://tile.openstreetmap.bzh/br/{z}/{x}/{y}.png'
       />
-
       <VectorTileLayer
         styleUrl='mapbox://styles/customstyles/ckpslkwor05q318mzmetjbv5z'
         accessToken='XXXX'
@@ -101,12 +102,11 @@ const Map = () => {
           }
         />
       ) : null}
-
+      {/* ---------------------table---------------------- */}
+      <Table />
       {/* ---------------------road----------------------- */}
-
       <Road />
       {/* -----------------circle markers----------------- */}
-
       {!isPassed ? (
         <>
           <CircleMarker

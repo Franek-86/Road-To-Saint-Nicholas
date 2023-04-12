@@ -973,3 +973,60 @@ li > h4 {
   bottom: calc(100% + 3.75rem);
   clip-path: ellipse(17% 44% at 50% 50%);
 }
+
+/* ---------------------------------------bus table-------------------------- */
+/* <ul className='table-stop-list'>
+                <li className={`table-stop table-stop-${index}`}>{i[0]}</li>
+              </ul> */
+.bus-table-section {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1000;
+  background-color: var(--clr-primary-2);
+  padding: 0.5rem;
+  border-radius: var(--radius);
+  border: 2px solid var(--clr-secondary-2);
+}
+
+.table-stop p {
+  text-transform: uppercase;
+  color: var(--clr-secondary-5);
+  letter-spacing: var(--space);
+  text-align: center;
+}
+
+.table-stop-blur p {
+  color: var(--clr-secondary-2);
+}
+
+.bus-line-name {
+  text-transform: unset;
+  font-style: oblique;
+}
+
+.bus-table-section::after {
+  content: "";
+  position: absolute;
+  display: block;
+  bottom: -20%;
+  left: 50%;
+  transform: translateX(-50%);
+  right: 50%;
+  width: 6px;
+  height: 20%;
+  background-color: var(--clr-secondary-2);
+}
+.bus-table-section::before {
+  content: "";
+  position: absolute;
+  display: block;
+  bottom: -20%;
+  left: 0;
+  transform: translateX(-50%);
+
+  right: 50%;
+  width: 100%;
+  height: 6px;
+  background-color: var(--clr-secondary-2);
+}
