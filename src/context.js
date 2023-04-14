@@ -1,6 +1,7 @@
 import axios from "axios";
 
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
+import { quizArr } from "./data";
 
 const tempUrl =
   "https://opentdb.com/api.php?amount=2&category=21&difficulty=easy&type=multiple";
@@ -48,12 +49,14 @@ const AppProvider = ({ children }) => {
   const [error, setError] = useState(0);
   const [index, setIndex] = useState(0);
   const [correct, setCorrect] = useState(0);
-  const [quiz, setQuiz] = useState({
-    amount: "",
-    category: "",
-    difficulty: "",
-    text: "",
-  });
+  const [quiz, setQuiz] = useState(quizArr);
+
+  const loadQuiz = () => {
+    setQuiz(quiz[locationIndex]);
+  };
+  const resetQuiz = () => {
+    setQuiz(quizArr);
+  };
 
   const fetchQuestions = async (url) => {
     setLoading(true);
@@ -230,6 +233,8 @@ const AppProvider = ({ children }) => {
         setLocIndex,
         reStart,
         slideRoad,
+        loadQuiz,
+        resetQuiz,
       }}
     >
       {children}

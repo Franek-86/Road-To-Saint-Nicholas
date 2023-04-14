@@ -15,6 +15,7 @@ const Congratulations = () => {
     locationIndex,
     endJourney,
     end,
+    resetQuiz,
   } = useGlobalContext();
   let closeResultsAndShowCricket = () => {
     if (locationIndex === 4) {
@@ -24,6 +25,7 @@ const Congratulations = () => {
     } else {
       showOctopus();
       closeSecondModal();
+      resetQuiz();
     }
   };
 
@@ -36,7 +38,7 @@ const Congratulations = () => {
           questions correctly
         </p>
         <button className='close-btn' onClick={closeResultsAndShowCricket}>
-          {locationIndex === 4 ? "close " : "back to map"}
+          {locationIndex === 4 ? <span>close</span> : <span>back to map</span>}
         </button>
       </div>
     </div>

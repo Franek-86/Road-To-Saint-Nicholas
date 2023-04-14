@@ -7,6 +7,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-width: 260px;
 }
 
 code {
@@ -22,6 +23,7 @@ main {
 }
 .leaflet-container {
   height: 100%;
+  min-width: 260px;
 }
 /* map */
 @import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;800;900&family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,600;1,200;1,400&display=swap");
@@ -239,6 +241,52 @@ p {
 }
 /* ------------------------------------------modal----------------------------------- */
 
+/* <section
+      className={!isModalOpen ? "section-modal" : "section-modal show-modal"}
+    >
+      <article className='modal modal-1'>
+        <div className='modal-title'>
+          <div className='modal-icon'>
+            <SiChainguard className='modal-brand-icon' />
+          </div>
+          <h3>the {flag ? "Musicals & Theatres" : category} quiz</h3>
+          <button onClick={closeModal} className='close-modal'>
+            <AiOutlineCloseSquare className='modal-brand' />
+          </button>
+        </div>
+        <div className='modal-center'>
+          <div className='modal-text'>
+            <p>{text}</p>
+            <ul>
+              <li>
+                <h4>Category: </h4>
+                <span>{flag ? "Musicals & Theatres" : category}</span>;
+              </li>
+              <li>
+                <h4>Number of questions: </h4>
+                <span>{amount};</span>
+              </li>
+              <li>
+                <h4>Difficulty level: </h4>
+                <span>{difficulty};</span>
+              </li>
+              <li>
+                <h4>Test number: </h4>
+                <span>
+                  {locationIndex + 1} of {center.length};
+                </span>
+              </li>
+            </ul>
+          </div>
+          <div className='open-modal-btn'>
+            <button className='btn open-btn' onClick={handleSubmit}>
+              start test
+            </button>
+          </div>
+        </div>
+      </article>
+    </section> */
+
 .modal-text p {
   line-height: 1.5rem;
   margin: 2rem 0 1rem 0;
@@ -271,15 +319,42 @@ li > h4 {
   align-items: center;
   visibility: hidden;
 }
+/* @media screen and(max-width: 500px){
+  .section-modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    visibility: hidden;
+  }
+
+
+} */
 .modal {
   position: relative;
-  width: 30rem;
+  max-width: 30rem;
   height: auto;
   border: 2px solid var(--clr-secondary-5);
   border-radius: var(--radius);
   background-color: var(--clr-primary-1);
   box-shadow: var(--dark-shadow);
   color: var(--clr-secondary-5);
+}
+
+@media screen and (max-width: 500px) {
+  .modal {
+    max-width: 95vw;
+    /* width: 100%; */
+    border: 2px solid var(--clr-secondary-5);
+    border-radius: var(--radius);
+    background-color: var(--clr-primary-1);
+    box-shadow: var(--dark-shadow);
+    color: var(--clr-secondary-5);
+  }
 }
 .modal-title {
   border-bottom: 2px solid var(--clr-secondary-5);
@@ -416,6 +491,11 @@ li > h4 {
   border-radius: var(--radius);
   padding: 2rem;
 }
+@media screen and (max-width: 380px) {
+  .quiz {
+    width: 95vw;
+  }
+}
 .quiz-small {
   max-width: 500px;
 }
@@ -476,6 +556,49 @@ li > h4 {
   transition: var(--transition);
   cursor: pointer;
 }
+@media screen and (max-width: 325px) {
+  .correct-answers {
+    font-size: 0.75rem;
+    margin-bottom: 1.5rem;
+    margin-top: 0;
+    text-align: center;
+    text-transform: capitalize;
+    letter-spacing: 0.1rem;
+    color: var(--clr-secondary-6);
+  }
+  .answer-btn {
+    letter-spacing: 0.1rem;
+  }
+  .container h2 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+    line-height: 1.1;
+    text-transform: none;
+    font-size: 1.4rem;
+  }
+  .next-question,
+  .close-btn {
+    /* border-radius: var(--radius); */
+    border-color: transparent;
+    padding: 0.25rem 0.5rem;
+    display: block;
+    width: 35%;
+    margin-left: auto;
+    margin-top: 2rem;
+    text-transform: capitalize;
+    font-weight: 700;
+    letter-spacing: 0.2rem;
+    font-size: 0.7rem;
+    background: var(--clr-secondary-4);
+    color: #ffff;
+    transition: var(--transition);
+    cursor: pointer;
+  }
+  .close-btn {
+    width: 50%;
+  }
+}
+
 .next-question:hover {
   background: var(--clr-secondary-4);
   color: var(--clr-secondary-9);
@@ -511,6 +634,11 @@ li > h4 {
   border-radius: var(--radius);
   text-align: center;
   position: relative;
+}
+@media screen and (max-width: 350px) {
+  .modal-content {
+    padding: 5rem 2rem;
+  }
 }
 .modal-content p {
   font-size: 1.5rem;

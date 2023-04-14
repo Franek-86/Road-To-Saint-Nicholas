@@ -49,7 +49,7 @@ const Questions = () => {
             </div>
           </article>
           <button className='next-question' onClick={nextQuestion}>
-            next question
+            next
           </button>
         </article>
       )}
