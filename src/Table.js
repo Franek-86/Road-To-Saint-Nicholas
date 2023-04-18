@@ -2,10 +2,14 @@ import React from "react";
 import { useGlobalContext } from "./context";
 import { MdLocationPin } from "react-icons/md";
 import { MdRoom } from "react-icons/md";
+import MetroTable from "./MetroTable";
 
 const Table = () => {
+  let test = true;
   const { center, locationIndex } = useGlobalContext();
-
+  if (test) {
+    return <MetroTable />;
+  }
   return (
     <section className='bus-table-section'>
       <div className='table-wrapper'>

@@ -46,20 +46,22 @@ const CircleMarkers = () => {
 
   return circleArr.map((i, index) => {
     return (
-      <CircleMarker
-        className={locationIndex === index ? "stop" : "disappear"}
-        center={center[index][1]}
-        pathOptions={brownOption}
-        stroke={brownOption}
-        radius={20}
-        eventHandlers={{
-          click: () => {
-            openModal();
-            slideRoad();
-            loadQuiz();
-          },
-        }}
-      ></CircleMarker>
+      <>
+        <CircleMarker
+          className={locationIndex === index ? "stop" : "disappear"}
+          center={center[index][1]}
+          pathOptions={brownOption}
+          stroke={brownOption}
+          radius={20}
+          eventHandlers={{
+            click: () => {
+              openModal();
+              slideRoad();
+              loadQuiz();
+            },
+          }}
+        ></CircleMarker>
+      </>
     );
   });
 };
