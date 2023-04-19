@@ -11,14 +11,19 @@ const MetroTable = () => {
     "Saturday",
     "Sunday",
   ];
-  const hours = new Date().getHours();
-  const minutes = new Date().getMinutes();
-  const year = new Date().getFullYear();
-  const month = new Date().getMonth();
-  const date = new Date().getDate();
-  const day = weekDays[new Date().getDay()];
-  const time = `${hours}:${minutes}`;
-  console.log(time);
+  let hours = new Date().getHours();
+  let minutes = new Date().getMinutes();
+
+  let year = new Date().getFullYear();
+  let month = new Date().getMonth();
+  if (month < 10) {
+    month = `0${month}`;
+  }
+  let date = new Date().getDate();
+  let day = weekDays[new Date().getDay()];
+  let time = `${hours}:${minutes}`;
+  console.log(month);
+
   return (
     <section className='metro-stops-section'>
       <div className='metro-wrapper'>
