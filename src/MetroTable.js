@@ -28,14 +28,13 @@ const MetroTable = () => {
     <section className='metro-stops-section'>
       <div className='metro-wrapper'>
         <div className='metro-header'>
-          <h2>
+          <h2 className='metro-name'>
             bus line: <span className='metro-stop-name'>rtsn</span>
           </h2>
           <div className='date-wrapper'>
             <h2>
-              {day} {date}/{month}/{year}{" "}
+              {day} {date}/{month}/{year} <span className='time'>{time}</span>
             </h2>
-            <h2>{time}</h2>
           </div>
         </div>
         <div className='metro-stops'>

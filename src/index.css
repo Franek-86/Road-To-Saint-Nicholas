@@ -1041,7 +1041,7 @@ li > h4 {
 
 .road-step {
   width: 16%;
-  height: 100%;
+  height: 1.5rem;
   border-right: 0.2rem solid var(--clr-secondary-4);
   position: relative;
   z-index: 1000;
@@ -1124,7 +1124,7 @@ li > h4 {
   top: 1rem;
   left: 1rem;
   z-index: 1000;
-  background-color: var(--clr-primary-2);
+  background-color: var(--clr-primary-);
   padding: 0.5rem;
   border-radius: var(--radius);
   border: 2px solid var(--clr-secondary-2);
@@ -1178,28 +1178,63 @@ li > h4 {
   position: absolute;
   z-index: 1000;
   width: 100vw;
+  height: 8rem;
+  /* border: 2px solid red; */
+  background-color: #d4ddd5c1;
+  clip-path: polygon(90% 0, 100% 50%, 90% 100%, 0% 100%, 7% 50%, 0% 0%);
+}
+.metro-stops-section h2 {
+  color: var(--clr-primary-4);
+  font-size: 1.05rem;
 }
 /* .metro-wrapper {
   clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
 } */
-.metro-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  padding: 0.5rem;
-  background-color: var(--clr-primary-2);
+.time {
+  display: none;
+}
+@media screen and (min-width: 600px) {
+  .metro-header {
+    margin-left: 2vw;
+  }
+  .date-wrapper {
+    margin-left: 2vw;
+  }
+  .time {
+    display: inline-block;
+  }
+}
+
+/* <div className='metro-header'>
+          <h2 className="metro-name">
+            bus line: <span className='metro-stop-name'>rtsn</span>
+          </h2>
+          <div className='date-wrapper'>
+            {/* <h2>
+              {day} {date}/{month}/{year}{" "}
+            </h2> */
+/* <h2>{time}</h2> */
+/* </div> */
+/* </div> */
+.metro-name {
+  text-align: left;
+  margin-left: 1rem;
 }
 .date-wrapper {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
+  position: absolute;
+  top: 6.25rem;
+  left: 1rem;
 }
+
 .metro-stops {
   position: absolute;
   width: 100%;
-  background-color: #ffe5cfda;
-  height: 3rem;
+  top: 2.25rem;
+  background-color: #ffe5cfa4;
+  height: 3.5rem;
+  z-index: -1;
   /* border: 2px solid green; */
+  clip-path: polygon(90% 0, 95% 50%, 90% 100%, 0% 100%, 7% 50%, 0% 0%);
 }
 .metro-stop-list {
   display: flex;
@@ -1220,8 +1255,8 @@ li > h4 {
   top: 2.24rem;
   height: 1rem;
   width: 1rem;
-  background-color: var(--clr-primary-7);
-  z-index: 2;
+  background-color: var(--clr-primary-4);
+  z-index: 1;
   transform: translate(-50%, -50%);
   border-radius: var(--radius);
   /* border: 1px solid yellow; */
@@ -1234,7 +1269,6 @@ li > h4 {
   height: 0.5rem;
   width: 0.5rem;
   background-color: var(--clr-secondary-1);
-  z-index: 2;
   transform: translate(-50%, -50%);
   border-radius: var(--radius);
   z-index: 100;
@@ -1245,7 +1279,7 @@ li > h4 {
   content: "";
   position: absolute;
   display: block;
-  bottom: 0rem;
+  bottom: 0.4rem;
   left: 10%;
   right: 10%;
   width: calc(80% - 10vw);
@@ -1277,39 +1311,3 @@ li > h4 {
 .metro-stop-blur p {
   color: var(--clr-secondary-2);
 }
-
-/* <section className='metro-stops-section'>
-      <div className='metro-wrapper'>
-        <div className='metro-header'>
-          <h2>
-            bus line: <span className='metro-stop-name'>rtsn</span>
-          </h2>
-          <div className='date-wrapper'>
-            <h2>
-              {day} {date}/{month}/{year}{" "}
-            </h2>
-            <h2>{time}</h2>
-          </div>
-        </div>
-        <div className='metro-stops'>
-          <ul className='metro-stop-list'>
-            {center.map((i, index) => {
-              return (
-                <li
-                  className={
-                    index === locationIndex
-                      ? `metro-stop metro-stop-${index} `
-                      : `metro-stop metro-stop-${index} metro-stop-blur`
-                  }
-                >
-                  <p>
-                    {/* {i[0]} {index === locationIndex && <MdRoom />} */
-/* {i[0]}
-                  </p>
-                </li>
-              );
-            })} */
-/* </ul>
-        </div>
-      </div>
-    </section> */
