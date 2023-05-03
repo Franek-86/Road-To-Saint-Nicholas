@@ -56,7 +56,7 @@ const CircleMarkers = () => {
           eventHandlers={{
             click: () => {
               openModal();
-              slideRoad();
+              // slideRoad();
               loadQuiz();
             },
           }}

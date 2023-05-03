@@ -16,6 +16,7 @@ const Congratulations = () => {
     endJourney,
     end,
     resetQuiz,
+    slideRoad,
   } = useGlobalContext();
   let closeResultsAndShowCricket = () => {
     if (locationIndex === 4) {
@@ -26,6 +27,7 @@ const Congratulations = () => {
       showOctopus();
       closeSecondModal();
       resetQuiz();
+      // slideRoad();
     }
   };
 

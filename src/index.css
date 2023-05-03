@@ -1019,7 +1019,7 @@ li > h4 {
   padding-left: 0.25rem;
   opacity: 0;
   visibility: none;
-  transition: opacity 2s ease;
+  transition: opacity 3s ease;
 }
 .show-bus {
   visibility: visible;

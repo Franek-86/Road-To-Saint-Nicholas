@@ -60,7 +60,7 @@ const Map = () => {
       } else {
         console.log("stop it");
       }
-
+      slideRoad();
       hideCricket();
     };
     return (
