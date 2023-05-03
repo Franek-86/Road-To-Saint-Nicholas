@@ -12,14 +12,23 @@ const MetroTable = () => {
     "Sunday",
   ];
   let hours = new Date().getHours();
-  let minutes = new Date().getMinutes();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
 
+  let minutes = new Date().getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
   let year = new Date().getFullYear();
   let month = new Date().getMonth();
   if (month < 10) {
     month = `0${month}`;
   }
   let date = new Date().getDate();
+  if (date < 10) {
+    date = `0${date}`;
+  }
   let day = weekDays[new Date().getDay()];
   let time = `${hours}:${minutes}`;
   console.log(month);
