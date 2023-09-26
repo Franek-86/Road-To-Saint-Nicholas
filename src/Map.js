@@ -78,16 +78,21 @@ const Map = () => {
       center={center[locationIndex][1]}
       zoom={17}
       scrollWheelZoom={false}
-      eventHandlers={{
-        click: () => {
-          console.log("marker clicked");
-        },
-      }}
+      eventHandlers={
+        {
+          // click: () => {
+          //   console.log("marker clicked");
+          // },
+        }
+      }
     >
-      {console.log("imMap", locationIndex)}
-      <TileLayer
+      {/* <TileLayer
         attribution='Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url='https://tile.openstreetmap.bzh/br/{z}/{x}/{y}.png'
+      /> */}
+      <TileLayer
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
       />
       <VectorTileLayer
         styleUrl='mapbox://styles/customstyles/ckpslkwor05q318mzmetjbv5z'

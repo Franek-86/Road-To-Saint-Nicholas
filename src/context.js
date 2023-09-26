@@ -81,7 +81,6 @@ const AppProvider = ({ children }) => {
     setIsStart(false);
     setIsEnd(false);
   };
-  console.log("location index", locationIndex);
   const slideRoad = () => {
     // let test5 = localStorage.getItem("locationIndex");
     // console.log("test5", test5);
@@ -101,7 +100,6 @@ const AppProvider = ({ children }) => {
       setSlide(3);
     }
   };
-  console.log("slide", slide);
   const reStart = () => {
     // setWaiting(true);
     closeModal();

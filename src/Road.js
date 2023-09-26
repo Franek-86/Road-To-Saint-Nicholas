@@ -21,22 +21,18 @@ const Road = () => {
       }
     >
       <div className='road-trees-wrapper'>
-        {treesArr.map((i) => {
-          console.log(i);
+        {treesArr.map((i, index) => {
           return (
-            <>
-              <div className='road-trees-base'>
-                <div className='road-trees-green'></div>
-              </div>
-            </>
+            <div key={index} className='road-trees-base'>
+              <div className='road-trees-green'></div>
+            </div>
           );
         })}
       </div>
       <div className='road-steps-wrapper'>
         {center.map((i, index) => {
-          console.log(i);
           return (
-            <div className={`road-step step-${index}`}>
+            <div key={index} className={`road-step step-${index}`}>
               <div
                 className={
                   index === locationIndex ? `road-bus show-bus` : `road-bus`
@@ -52,13 +48,8 @@ const Road = () => {
 
       <div className='road-wrapper'>
         <div className='road-lines-wrapper'>
-          {linesArr.map((i) => {
-            console.log(i);
-            return (
-              <>
-                <div className='road-line'></div>
-              </>
-            );
+          {linesArr.map((i, index) => {
+            return <div key={index} className='road-line'></div>;
           })}
         </div>
       </div>

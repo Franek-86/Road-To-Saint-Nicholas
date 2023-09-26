@@ -31,7 +31,6 @@ const MetroTable = () => {
   }
   let day = weekDays[new Date().getDay()];
   let time = `${hours}:${minutes}`;
-  console.log(month);
 
   return (
     <section className='metro-stops-section'>
@@ -56,6 +55,7 @@ const MetroTable = () => {
                       ? `metro-stop metro-stop-${index} `
                       : `metro-stop metro-stop-${index} metro-stop-blur`
                   }
+                  key={index}
                 >
                   <p>
                     {/* {i[0]} {index === locationIndex && <MdRoom />} */}
