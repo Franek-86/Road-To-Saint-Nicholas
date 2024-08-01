@@ -59,7 +59,7 @@ const Modal = () => {
           </div>
           <div className='open-modal-btn'>
             <button className='btn open-btn' onClick={handleSubmit}>
-              start test
+              start testt
             </button>
           </div>
         </div>

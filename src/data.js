@@ -4,6 +4,7 @@ export const quizArr = [
     category: "geography",
     difficulty: "easy",
     text: "Welcome to the Karol Wojtyła Airport of Bari, starting point of our quiz tour trough the wonderful city of Bari. We are in the capital city of the Metropolitan City of Bari and of the Apulia region, on the Adriatic Sea, southern Italy. Are you good in geography? Lets's test it out!",
+    video: "test",
   },
   {
     amount: "1",
